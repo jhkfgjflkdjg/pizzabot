@@ -6,11 +6,6 @@ print ("Is your order for pickup or delivery?")
 
 print ("For pickup please enter 1")
 print ("For delivery please enter 2")
-
-
-
-
-
 while True:
     try: 
      delivery = int(input("please enter a number"))
@@ -26,4 +21,4 @@ while True:
          print ("Number must be 1 or 2")
     except ValueError:
       print("That is not a valid number")
-      print("please enter 1 or 2)")
+      print("please enter 1 or 2")
