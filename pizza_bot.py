@@ -41,19 +41,20 @@ def welcome():
 
 def order_type(): 
  print ("Is your order for pickup or delivery?")
-
-print ("For pickup please enter 1")
-print ("For delivery please enter 2")
-while True:
+ print ("For pickup please enter 1")
+ print ("For delivery please enter 2")
+ while True:
     try: 
      delivery = int(input("please enter a number"))
      if delivery >= 1 and delivery <= 2:  
-        if delivery == 2:
-            print ("pickup")
+        if delivery == 1:
+            print ("pickup") 
+            pickup_info()
             break
         
-        elif delivery == 1:
+        elif delivery == 2:
             print ("delivery")
+            delivery_info()
             break 
      else:
          print ("Number must be 1 or 2")
@@ -62,7 +63,18 @@ while True:
       print("please enter 1 or 2")
 
 #pick up information- name and phone number 
-def order_type():
+def pickup_info():
+    question = ("please enter your name ")
+    customer_details['name'] = not_blank(question )
+    print (customer_details['name']) 
+        
+    question = ("please enter your phone number")
+    customer_details ['phone'] = not_blank(question )
+    print (customer_details ['phone'])
+    print(customer_details)
+
+# Delivery information - name address and phone
+def delivery_info():
     question = ("please enter your name ")
     customer_details['name'] = not_blank(question )
     print (customer_details['name']) 
@@ -71,8 +83,18 @@ def order_type():
     customer_details ['phone'] = not_blank(question )
     print (customer_details ['phone'])
 
-# Delivery information - name address and phone
+    question = ("please enter your house number ")
+    customer_details ['house'] = not_blank(question )
+    print (customer_details['house'])
 
+    question = ("please enter your street name")
+    customer_details ['street'] = not_blank(question )
+    print (customer_details['street'])
+
+    question = ("please enter your suburb")
+    customer_details ['suburb'] = not_blank(question )
+    print (customer_details['suburb'])
+    print(customer_details)
 
 
 #choose total number of Pizzas - max 5
