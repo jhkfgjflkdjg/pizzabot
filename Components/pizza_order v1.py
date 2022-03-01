@@ -31,12 +31,13 @@ print("please choose your pizzas by entering the numeber from the menu")
 for item in range(num_pizzas):
     while num_pizzas > 0:
         pizza_orderd = int(input())
+        pizza_orderd = pizza_names -1
         order_list.append(pizza_names[pizza_orderd])
         order_cost.append(pizza_prices[pizza_orderd])
+        print("{} {} ${:.2f}" .format(pizza_names[pizza_orderd],pizza_prices[pizza_orderd]))
         num_pizzas = num_pizzas -1 
 
-print(order_list)
-print(order_cost)
+
 
 
     
