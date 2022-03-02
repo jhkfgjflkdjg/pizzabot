@@ -36,12 +36,19 @@ while True:
 
 
 
-print(num_pizzas)
-
 #choose pizza from menu 
-print("please choose your pizzas by entering the numeber from the menu")
 for item in range(num_pizzas):
     while num_pizzas > 0:
+        while True:
+            try:
+                  num_pizzas = int(input("please choose your pizzas by entering the number from the menu "))
+                  if num_pizzas >= 1 and num_pizzas <=12:
+                   break  
+                  else:
+                     print("Your pizza order must be between 1 and 12") 
+            except ValueError:
+                print("That is not valid number")
+                print("Please enter a number between 1 and 12")
         pizza_ordered = int(input())
         pizza_ordered = pizza_ordered -1
         order_list.append(pizza_names[pizza_ordered])
