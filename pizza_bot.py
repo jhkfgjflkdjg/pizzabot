@@ -19,7 +19,6 @@ order_list=[]
 #List to store pizzas prices    
 order_cost=[]
 
-
 #customer detalis dictionary
 customer_details = {}
 
@@ -151,11 +150,7 @@ def order_pizza():
             num_pizzas = num_pizzas -1 
 
 
-
-
-
-
-
+#print order out - Including if order is delivery or pickup and names and prices of each pizza - total cost including any delivery charge 
 
 # main fuction 
 def main():   
