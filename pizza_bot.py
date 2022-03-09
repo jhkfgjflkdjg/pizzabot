@@ -65,6 +65,8 @@ def order_type():
         
         elif delivery == 2:
             print ("delivery")
+            order_list.append("Delivery charge")
+            order_cost.append(5)
             delivery_info()
             del_pick = "delivery" 
             break 
@@ -123,7 +125,6 @@ def menu():
 def order_pizza():
     # ask for total number of pizza for order
     num_pizzas = 0
-
     while True:
         try:
             num_pizzas = int(input("How many pizza do you want to order? "))
@@ -139,15 +140,14 @@ def order_pizza():
         while num_pizzas > 0:
             while True:
                 try:
-                    num_pizzas = int(input("please choose your pizzas by entering the number from the menu "))
-                    if num_pizzas >= 1 and num_pizzas <=12:
+                    pizza_ordered = int(input("please choose your pizzas by entering the number from the menu "))
+                    if pizza_ordered >= 1 and pizza_ordered <=12:
                       break  
                     else:
                         print("Your pizza order must be between 1 and 12") 
                 except ValueError:
                     print("That is not valid number")
                     print("Please enter a number between 1 and 12")
-            pizza_ordered = int(input())
             pizza_ordered = pizza_ordered -1
             order_list.append(Pizza_names[pizza_ordered])
             order_cost.append(pizza_prices[pizza_ordered])
@@ -158,11 +158,14 @@ def order_pizza():
 
 #print order out - Including if order is delivery or pickup and names and prices of each pizza - total cost including any delivery charge 
 def print_order(del_pick):
+    print()
     total_cost = sum(order_cost)
     print("Customer_Details")
     if del_pick =="pickup":
+         print("Your order is for pickup")
          print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
     elif del_pick == "delivery":
+         print("Your order is for delivery")
          print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Order Deatils")
@@ -191,7 +194,6 @@ def main():
     '''
     welcome()
     del_pick = order_type()
-    print(del_pick)
     menu()
     order_pizza()
     print_order(del_pick)
