@@ -3,6 +3,7 @@
 #Bugs - phone number input allows letters
 #     - name input allows numbers 
 
+import sys
 import random
 from random import randint 
 
@@ -65,8 +66,6 @@ def order_type():
         
         elif delivery == 2:
             print ("delivery")
-            order_list.append("Delivery charge")
-            order_cost.append(5)
             delivery_info()
             del_pick = "delivery" 
             break 
@@ -165,10 +164,11 @@ def print_order(del_pick):
          print("Your order is for pickup")
          print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
     elif del_pick == "delivery":
-         print("Your order is for delivery")
+         print("Your order is for delivery a $5.00 delivery charge applies")
+         total_cost = total_cost + 5
          print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
-    print("Order Deatils")
+    print("Your Order Deatils")
     count= 0  
     for item in order_list:
         print("Ordered: {}  Cost ${:.2f}".format(item, order_cost[count]))
@@ -179,6 +179,65 @@ def print_order(del_pick):
 
 
 #Ability to cancel or proceed with order 
+def confirm_cancel():
+    print("Please Confirm Your Order")
+    print ("To Confirm please enter 1")
+    print ("To Cancel please enter 2")
+    while True:
+        try: 
+         Confirm = int(input("please enter a number"))
+         if Confirm >= 1 and Confirm <= 2:  
+            if Confirm == 1:
+                print ("Order Confirm")
+                print ("Your order has been sent to our kitchen")
+                print ("Your delicious pizza will be with you shorlty")
+                new_exit()
+                break 
+            
+            elif Confirm == 2:
+                print ("Your Order has been Cancelled")
+                print ("You can restart your order or exit the BOT")
+                new_exit()
+                break 
+         else:
+            print ("Number must be 1 or 2")
+        except ValueError:
+            print("That is not a valid number")
+            print("please enter 1 or 2")
+
+
+
+# Option for new order or to exit 
+def new_exit():
+    print("Do you want to start another Order or Exit")
+    print ("To start another order enter 1")
+    print ("To exit the BOT enter 2")
+    while True:
+        try: 
+          Confirm = int(input("please enter a number"))
+          if Confirm >= 1 and Confirm <= 2:  
+            if Confirm == 1:
+                print ("New Order")
+                order_list.clear()
+                order_cost.clear()
+                customer_details.clear
+                main()
+                break 
+            
+            elif Confirm == 2:
+                print ("Exit")
+                order_list.clear()
+                order_cost.clear()
+                customer_details.clear
+                sys.exit()
+                break 
+          else:
+            print ("Number must be 1 or 2")
+        except ValueError:
+            print("That is not a valid number")
+            print("please enter 1 or 2")
+
+
 
 
 
@@ -197,6 +256,8 @@ def main():
     menu()
     order_pizza()
     print_order(del_pick)
+    confirm_cancel()
+    
     
 
 main ()
