@@ -8,17 +8,23 @@ import random
 from random import randint 
 
 # List of random names 
-names =["Mikara","Jodek","Tomas","Carlos","Karlo","Louis","Joaquin","Shawn","Marcus","Gabe"]
+names =["Mikara","Jodek","Tomas","Carlos","Karlo",
+        "Manwel","Joaquin","Shawn","Marcus","Gabe"]
 #List of pizza names 
-Pizza_names = ['Margherita','Pepperoni','Hawaiian','Cheese ','Italian','Veggie','Vegan','Chicken Deluxe',
-                'Mega Meat Lovers','Seafood Deluxe','Apricot chicken Deluxe','BBQ Chicken Deluxe']
+Pizza_names = ['Margherita','Pepperoni','Hawaiian','Cheese ',
+               'Italian','Veggie','Vegan','Chicken Deluxe',
+                'Mega Meat Lovers','Seafood Deluxe',
+                'Apricot chicken Deluxe','BBQ Chicken Deluxe']
 #List of pizza prices 
-pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
+pizza_prices = [8.50, 8.50, 8.50, 8.50, 
+                8.50, 8.50, 8.50, 13.50, 
+                13.50, 13.50, 13.50, 13.50]
+
 
 #List to store orderd pizzas 
-order_list=[]
+order_list= []
 #List to store pizzas prices    
-order_cost=[]
+order_cost= []
 
 #customer detalis dictionary
 customer_details = {}
@@ -41,10 +47,10 @@ def welcome():
     parameter: None
     Returns: None
     '''
-    num = randint(0,9)
+    num = randint(0, 9)
     name = (names[num])
     print("*** Welcome to Dream Pizza***")
-    print("*** My name is",name, "***")
+    print("*** My name is", name , "***")
     print("*** I will be here to help you order your delicious Dream Pizza***")
 
 #menu for pickup and delivery 
