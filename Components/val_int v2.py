@@ -8,13 +8,13 @@ def order_type(low, high, question):
         if num >= low and num <= high:  
             return num  
         else:
-            print(f"Enter a number between {LOW}, "and", {HIGH}")
+            print(f"Please enter a number between {low}, "and", {high}")
     except ValueError:
         print("That is not a valid number")
-        print(f"Enter a number between {LOW}, "and", {HIGH}")
+        print(f"Please enter a number between {low}, "and", {high}")
 
 LOW = 1
-HIGH = 2
+HIGH = 12
 QUESTION(f"Enter a number between {LOW}, "and", {HIGH}")
 
 answer = order_type(LOW, HIGH, QUESTION)
